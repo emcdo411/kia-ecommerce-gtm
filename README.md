@@ -80,46 +80,44 @@ Below are the live Mermaid diagrams embedded in this README. Source files live i
 ```mermaid
 flowchart LR
 
-Start([Kickoff & Goals Aligned])
+Start([Kickoff and goals aligned])
 
-%% Phase 1
 subgraph P1["Phase 1 - Re-Engage Dealers (Days 0-30)"]
 direction LR
-IFM1[Build target list & data pull] --> IFM2[Outreach cadence & demo scheduling]
-IFM2 --> DEAL1[Identify stakeholders<br/>(Dealer Principal, Parts Manager, IT)]
+IFM1[Build target list and data pull] --> IFM2[Outreach cadence and demo scheduling]
+IFM2 --> DEAL1[Identify stakeholders - Dealer Principal, Parts Manager, IT]
 DEAL1 --> DEC1{Dealer signs program?}
-DEC1 -- No --> NURT[Nurture sequence<br/>(quarterly touches)] --> IFM2
+DEC1 -- No --> NURT[Nurture sequence - quarterly touches] --> IFM2
 DEC1 -- Yes --> P0[Provision project in tracker]
 end
 
 Start --> IFM1
 
-%% Phase 2
-subgraph P2["Phase 2 - Onboard & Setup (Days 31-60)"]
+subgraph P2["Phase 2 - Onboard and Setup (Days 31-60)"]
 direction TB
 
-subgraph LNA["A) Domain & Payments"]
+subgraph LNA["A) Domain and Payments"]
 direction TB
-DNS[Subdomain + DNS CNAME/TXT] --> PG[Payment gateway config<br/>(test $1 auth)]
+DNS[Subdomain and DNS CNAME or TXT] --> PG[Payment gateway config - test auth charge]
 PG --> DEC2{Gateway test passes?}
 DEC2 -- No --> REMPG[Gateway remediation checklist] --> PG
 end
 
-subgraph LNB["B) Catalog & Data"]
+subgraph LNB["B) Catalog and Data"]
 direction TB
-CAT1[DMS/data integration] --> CAT2[Pricing, tax, shipping rules] --> CAT3[Fitment & catalog sync]
-CAT3 --> DEC3{Catalog QA pass (10 SKUs)?}
-DEC3 -- No --> REMCAT[Map/attribute fixes] --> CAT3
+CAT1[DMS and data integration] --> CAT2[Pricing, tax, shipping rules] --> CAT3[Fitment and catalog sync]
+CAT3 --> DEC3{Catalog QA pass - 10 SKUs}
+DEC3 -- No --> REMCAT[Mapping and attribute fixes] --> CAT3
 end
 
-subgraph LNC["C) Analytics & Compliance"]
+subgraph LNC["C) Analytics and Compliance"]
 direction TB
-GA4[GA4 + Ads conversion tags] --> PCI[PCI/Privacy & data checklist] --> DASH[Ops dashboard provisioned]
+GA4[GA4 and Ads conversion tags] --> PCI[PCI and privacy checklist] --> DASH[Ops dashboard provisioned]
 end
 
 subgraph LND["D) Marketing Setup"]
 direction TB
-SEO[SEO baseline + on-page fixes] --> SEM[SEM templates + budgets] --> EMAIL[Email lists (DMS) + creatives approval]
+SEO[SEO baseline and on-page fixes] --> SEM[SEM templates and budgets] --> EMAIL[Email lists - DMS - and creative approval]
 end
 
 P0 --> DNS
@@ -127,28 +125,28 @@ P0 --> CAT1
 P0 --> GA4
 P0 --> SEO
 
-JOIN2([Go-Live Readiness Review])
+JOIN2([Go-Live readiness review])
 DEC2 --> JOIN2
 DEC3 --> JOIN2
 DASH --> JOIN2
 EMAIL --> JOIN2
 end
 
-%% Phase 3
-subgraph P3["Phase 3 - Promote & Optimize (Days 61-90)"]
+subgraph P3["Phase 3 - Promote and Optimize (Days 61-90)"]
 direction LR
-GL([Go-Live Publish]) --> MON[Live monitoring & Day-1 triage] --> KPI[Weekly KPI standup]
-GL --> EML[Retention + Conquest emails live] --> KPI
-GL --> ADS[SEM on + bid checks] --> KPI
-KPI --> AB[A/B tests (landing, menus, promos)]
-KPI --> IRF[IRF/Wholesale coaching & playbooks]
+GL([Go-Live publish]) --> MON[Live monitoring and day 1 triage] --> KPI[Weekly KPI standup]
+GL --> EML[Retention and conquest emails live] --> KPI
+GL --> ADS[SEM on and bid checks] --> KPI
+KPI --> AB[A B tests - landing, menus, promos]
+KPI --> IRF[IRF and wholesale coaching and playbooks]
 AB --> DEC4{Quarterly review complete?}
 IRF --> DEC4
-DEC4 -- Gaps --> REMPLAN[Action plan: owners & dates] --> KPI
-DEC4 -- Yes --> BOARD([Board update & next-quarter plan])
+DEC4 -- Gaps --> REMPLAN[Action plan - owners and dates] --> KPI
+DEC4 -- Yes --> BOARD([Board update and next quarter plan])
 end
 
 JOIN2 --> GL
+
 ````
 
 ### 90-Day Plan (Gantt Calendar)
