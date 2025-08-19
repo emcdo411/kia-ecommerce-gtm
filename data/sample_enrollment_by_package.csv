@@ -1,0 +1,5 @@
+package_tier,dealers,avg_revenue_per_dealer
+Base,42,42000
+Base+Ad,55,56000
+Advanced,38,63000
+Pro,15,72000
