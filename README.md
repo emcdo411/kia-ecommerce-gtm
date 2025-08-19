@@ -72,19 +72,8 @@ Charts below are **samples** generated from synthetic data for illustration. Rep
 - **Compliance**: PCI-compliant flows; data privacy practices.
 
 ## Workflow
-## Workflow
 
 Below are the live Mermaid diagrams embedded in this README. Source files live in `ops/` and optional exported images in `docs/workflow/`.
-
-### End-to-End Flow (Advanced)
-
-```mermaid
-Got it—here’s a **clean, GitHub-compatible replacement** for just the **Workflow** section. Paste this **in place of everything from your current `## Workflow` heading down to (but not including) `## How to Run the R Analytics`**.
-
-````markdown
-## Workflow
-
-Below are live Mermaid diagrams embedded in this README. Source files live in `ops/` and optional exported images in `docs/workflow/`.
 
 ### End-to-End Flow (Advanced)
 
