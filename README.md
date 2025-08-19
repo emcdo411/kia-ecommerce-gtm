@@ -149,7 +149,6 @@ DEC4 -- Yes --> BOARD([Board update & next-quarter plan])
 end
 
 JOIN2 --> GL
-
 ````
 
 ### 90-Day Plan (Gantt Calendar)
