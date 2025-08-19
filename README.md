@@ -78,13 +78,6 @@ Below are the live Mermaid diagrams embedded in this README. Source files live i
 ### End-to-End Flow (Advanced)
 
 ```mermaid
-## Workflow
-
-Below are live Mermaid diagrams embedded in this README. Source files live in `ops/` and optional exported images in `docs/workflow/`.
-
-### End-to-End Flow (Advanced)
-
-```mermaid
 flowchart LR
 
 Start([Kickoff & Goals Aligned])
