@@ -45,8 +45,14 @@ Kia Parts eCommerce is being relaunched with a proven playbook tailored for Fixe
 ## Program Evidence & Benchmarks
 Charts below are **samples** generated from synthetic data for illustration. Replace with live program data once available.
 
-- ![KPI Snapshot — Advanced](docs/figures/kpi_snapshot_advanced.png) • [Interactive (HTML)](docs/figures/kpi_snapshot_interactive.html)
-- ![Dealer Enrollment by Package Tier — Advanced](docs/figures/package_mix_advanced.png) • [Interactive (HTML)](docs/figures/package_mix_interactive.html)
+- ![KPI Snapshot — Advanced](docs/figures/kpi_snapshot_advanced.png) ·
+  [Interactive (GitHub Pages)](https://emcdo411.github.io/kia-ecommerce-gtm/figures/kpi_snapshot_interactive.html) ·
+  [Download HTML](https://raw.githubusercontent.com/emcdo411/kia-ecommerce-gtm/main/docs/figures/kpi_snapshot_interactive.html)
+
+- ![Dealer Enrollment by Package Tier — Advanced](docs/figures/package_mix_advanced.png) ·
+  [Interactive (GitHub Pages)](https://emcdo411.github.io/kia-ecommerce-gtm/figures/package_mix_interactive.html) ·
+  [Download HTML](https://raw.githubusercontent.com/emcdo411/kia-ecommerce-gtm/main/docs/figures/package_mix_interactive.html)
+
 - ![Conversion Funnel](docs/figures/conversion_funnel.png)
 - ![Regional Performance](docs/figures/regional_perf.png)
 - ![Top Movers QoQ](docs/figures/top_movers.png)
