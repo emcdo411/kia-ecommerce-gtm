@@ -79,7 +79,7 @@ Below are the live Mermaid diagrams embedded in this README. Source files live i
 ### End-to-End Flow (Advanced)
 
 ```mermaid
-GitHub’s Mermaid chokes on `\n` inside labels. Here’s a **GitHub-compatible** replacement for your **Workflow** section (uses `<br/>` for line breaks and plain hyphens). Paste this in place of your current Workflow block—don’t change anything else.
+Got it—here’s a **clean, GitHub-compatible replacement** for just the **Workflow** section. Paste this **in place of everything from your current `## Workflow` heading down to (but not including) `## How to Run the R Analytics`**.
 
 ````markdown
 ## Workflow
@@ -90,13 +90,13 @@ Below are live Mermaid diagrams embedded in this README. Source files live in `o
 
 ```mermaid
 flowchart LR
-%% ========= Styles =========
-classDef milestone fill:#111827,stroke:#111827,color:#fff,rx:8,ry:8
-classDef decision  fill:#ffffff,stroke:#111827,stroke-width:2px,rx:6,ry:6
+%% Styles kept GitHub-safe (no rx/ry/newlines in labels)
+classDef milestone fill:#111827,stroke:#111827,color:#ffffff
+classDef decision  fill:#ffffff,stroke:#111827,stroke-width:2px
 classDef ifm       fill:#eef6ff,stroke:#1d4ed8,color:#0f172a
 classDef dealer    fill:#ecfdf5,stroke:#059669,color:#064e3b
 classDef kia       fill:#f5f3ff,stroke:#7c3aed,color:#3b0764
-classDef risk      fill:#fff7ed,stroke:#ea580c,color:#7c2d12,stroke-dasharray:4 3
+classDef risk      fill:#fff7ed,stroke:#ea580c,color:#7c2d12
 
 Start([Kickoff & Goals Aligned]):::milestone
 
@@ -117,16 +117,14 @@ direction TB
 subgraph LNA[A) Domain & Payments]
 direction TB
 DNS[Subdomain request + DNS CNAME/TXT]:::dealer --> PG[Payment gateway config<br/>(test $1 authorization)]:::dealer
-DEC2{Gateway test passes?}:::decision
-PG --> DEC2
+PG --> DEC2{Gateway test passes?}:::decision
 DEC2 -- No --> REMPG[Gateway remediation checklist]:::risk --> PG
 end
 
 subgraph LNB[B) Catalog & Data]
 direction TB
 CAT1[DMS/data integration]:::ifm --> CAT2[Pricing, tax, shipping rules]:::dealer --> CAT3[Fitment & catalog sync]:::ifm
-DEC3{Catalog QA pass (10 SKUs)?}:::decision
-CAT3 --> DEC3
+CAT3 --> DEC3{Catalog QA pass (10 SKUs)?}:::decision
 DEC3 -- No --> REMCAT[Map/attribute fixes]:::risk --> CAT3
 end
 
@@ -159,8 +157,7 @@ GL --> EML[Retention + Conquest emails live]:::ifm --> KPI
 GL --> ADS[SEM on + bid checks]:::ifm --> KPI
 KPI --> AB[A/B tests (landing, menus, promos)]:::ifm
 KPI --> IRF[IRF/Wholesale coaching & playbooks]:::ifm
-DEC4{Quarterly review complete?}:::decision
-AB --> DEC4
+AB --> DEC4{Quarterly review complete?}:::decision
 IRF --> DEC4
 DEC4 -- Gaps --> REMPLAN[Action plan: owners & dates]:::risk --> KPI
 DEC4 -- Yes --> BOARD([Board update & next-quarter plan]):::milestone
@@ -177,28 +174,29 @@ dateFormat  YYYY-MM-DD
 title Kia eCommerce Relaunch - 90-Day Plan
 
 section Phase 1 - Re-Engage (0-30)
-Outreach & demos            :active, p1a, 2025-09-01, 14d
-Stakeholder alignment       :p1b, after p1a, 10d
-Sign program (rolling)      :milestone, m1, 2025-09-20, 0d
+Outreach & demos                  :active, p1a, 2025-09-01, 14d
+Stakeholder alignment             :p1b, after p1a, 10d
+Sign program (rolling)            :milestone, m1, 2025-09-20, 0d
 
 section Phase 2 - Onboard & Setup (31-60)
-Domain & gateway            :p2a, 2025-09-21, 10d
-Catalog & data QA           :p2b, 2025-09-21, 14d
-Analytics & compliance      :p2c, 2025-09-21, 10d
-Marketing setup (SEO/SEM/Email) :p2d, 2025-09-24, 12d
-Go-Live readiness review    :milestone, m2, 2025-10-10, 0d
+Domain & gateway                  :p2a, 2025-09-21, 10d
+Catalog & data QA                 :p2b, 2025-09-21, 14d
+Analytics & compliance            :p2c, 2025-09-21, 10d
+Marketing setup (SEO/SEM/Email)   :p2d, 2025-09-24, 12d
+Go-Live readiness review          :milestone, m2, 2025-10-10, 0d
 
 section Phase 3 - Promote & Optimize (61-90)
-Go-Live publish             :p3a, 2025-10-11, 1d
-Monitoring & day-1 triage   :p3b, after p3a, 3d
-Emails & SEM live           :p3c, after p3a, 14d
-Weekly KPI standups         :p3d, 2025-10-12, 21d
-Quarterly review & plan     :milestone, m3, 2025-11-10, 0d
+Go-Live publish                   :p3a, 2025-10-11, 1d
+Monitoring & day-1 triage         :p3b, after p3a, 3d
+Emails & SEM live                 :p3c, after p3a, 14d
+Weekly KPI standups               :p3d, 2025-10-12, 21d
+Quarterly review & plan           :milestone, m3, 2025-11-10, 0d
 ```
 
 ```
 ::contentReference[oaicite:0]{index=0}
 ```
+
 
 
 
