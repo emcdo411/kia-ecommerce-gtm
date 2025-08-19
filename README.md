@@ -78,53 +78,55 @@ Below are the live Mermaid diagrams embedded in this README. Source files live i
 ### End-to-End Flow (Advanced)
 
 ```mermaid
+## Workflow
+
+Below are live Mermaid diagrams embedded in this README. Source files live in `ops/` and optional exported images in `docs/workflow/`.
+
+### End-to-End Flow (Advanced)
+
+```mermaid
 flowchart LR
-%% Styles kept GitHub-safe (no rx/ry/newlines in labels)
-classDef milestone fill:#111827,stroke:#111827,color:#ffffff
-classDef decision  fill:#ffffff,stroke:#111827,stroke-width:2px
-classDef ifm       fill:#eef6ff,stroke:#1d4ed8,color:#0f172a
-classDef dealer    fill:#ecfdf5,stroke:#059669,color:#064e3b
-classDef kia       fill:#f5f3ff,stroke:#7c3aed,color:#3b0764
-classDef risk      fill:#fff7ed,stroke:#ea580c,color:#7c2d12
 
-Start([Kickoff & Goals Aligned]):::milestone
+Start([Kickoff & Goals Aligned])
 
-subgraph P1[Phase 1 - Re-Engage Dealers (Days 0-30)]
+%% Phase 1
+subgraph P1["Phase 1 - Re-Engage Dealers (Days 0-30)"]
 direction LR
-IFM1[Build target list & data pull]:::ifm --> IFM2[Outreach cadence & demo scheduling]:::ifm
-IFM2 --> DEAL1[Identify stakeholders<br/>(Dealer Principal, Parts Manager, IT)]:::dealer
-DEAL1 --> DEC1{Dealer signs program?}:::decision
-DEC1 -- No --> NURT[Nurture sequence<br/>(quarterly touches)]:::ifm --> IFM2
-DEC1 -- Yes --> P0[Provision project in tracker]:::ifm
+IFM1[Build target list & data pull] --> IFM2[Outreach cadence & demo scheduling]
+IFM2 --> DEAL1[Identify stakeholders<br/>(Dealer Principal, Parts Manager, IT)]
+DEAL1 --> DEC1{Dealer signs program?}
+DEC1 -- No --> NURT[Nurture sequence<br/>(quarterly touches)] --> IFM2
+DEC1 -- Yes --> P0[Provision project in tracker]
 end
 
 Start --> IFM1
 
-subgraph P2[Phase 2 - Onboard & Setup (Days 31-60)]
+%% Phase 2
+subgraph P2["Phase 2 - Onboard & Setup (Days 31-60)"]
 direction TB
 
-subgraph LNA[A) Domain & Payments]
+subgraph LNA["A) Domain & Payments"]
 direction TB
-DNS[Subdomain request + DNS CNAME/TXT]:::dealer --> PG[Payment gateway config<br/>(test $1 authorization)]:::dealer
-PG --> DEC2{Gateway test passes?}:::decision
-DEC2 -- No --> REMPG[Gateway remediation checklist]:::risk --> PG
+DNS[Subdomain + DNS CNAME/TXT] --> PG[Payment gateway config<br/>(test $1 auth)]
+PG --> DEC2{Gateway test passes?}
+DEC2 -- No --> REMPG[Gateway remediation checklist] --> PG
 end
 
-subgraph LNB[B) Catalog & Data]
+subgraph LNB["B) Catalog & Data"]
 direction TB
-CAT1[DMS/data integration]:::ifm --> CAT2[Pricing, tax, shipping rules]:::dealer --> CAT3[Fitment & catalog sync]:::ifm
-CAT3 --> DEC3{Catalog QA pass (10 SKUs)?}:::decision
-DEC3 -- No --> REMCAT[Map/attribute fixes]:::risk --> CAT3
+CAT1[DMS/data integration] --> CAT2[Pricing, tax, shipping rules] --> CAT3[Fitment & catalog sync]
+CAT3 --> DEC3{Catalog QA pass (10 SKUs)?}
+DEC3 -- No --> REMCAT[Map/attribute fixes] --> CAT3
 end
 
-subgraph LNC[C) Analytics & Compliance]
+subgraph LNC["C) Analytics & Compliance"]
 direction TB
-GA4[GA4 + Ads conversion tags]:::ifm --> PCI[PCI/Privacy & data checklist]:::kia --> DASH[Ops dashboard provisioned]:::ifm
+GA4[GA4 + Ads conversion tags] --> PCI[PCI/Privacy & data checklist] --> DASH[Ops dashboard provisioned]
 end
 
-subgraph LND[D) Marketing Setup]
+subgraph LND["D) Marketing Setup"]
 direction TB
-SEO[SEO baseline + on-page fixes]:::ifm --> SEM[SEM templates + budgets]:::ifm --> EMAIL[Email lists (DMS) + creatives approval]:::dealer
+SEO[SEO baseline + on-page fixes] --> SEM[SEM templates + budgets] --> EMAIL[Email lists (DMS) + creatives approval]
 end
 
 P0 --> DNS
@@ -132,27 +134,29 @@ P0 --> CAT1
 P0 --> GA4
 P0 --> SEO
 
-JOIN2([Go-Live Readiness Review]):::milestone
+JOIN2([Go-Live Readiness Review])
 DEC2 --> JOIN2
 DEC3 --> JOIN2
 DASH --> JOIN2
 EMAIL --> JOIN2
 end
 
-subgraph P3[Phase 3 - Promote & Optimize (Days 61-90)]
+%% Phase 3
+subgraph P3["Phase 3 - Promote & Optimize (Days 61-90)"]
 direction LR
-GL([Go-Live Publish]):::milestone --> MON[Live monitoring & Day-1 triage]:::ifm --> KPI[Weekly KPI standup]:::ifm
-GL --> EML[Retention + Conquest emails live]:::ifm --> KPI
-GL --> ADS[SEM on + bid checks]:::ifm --> KPI
-KPI --> AB[A/B tests (landing, menus, promos)]:::ifm
-KPI --> IRF[IRF/Wholesale coaching & playbooks]:::ifm
-AB --> DEC4{Quarterly review complete?}:::decision
+GL([Go-Live Publish]) --> MON[Live monitoring & Day-1 triage] --> KPI[Weekly KPI standup]
+GL --> EML[Retention + Conquest emails live] --> KPI
+GL --> ADS[SEM on + bid checks] --> KPI
+KPI --> AB[A/B tests (landing, menus, promos)]
+KPI --> IRF[IRF/Wholesale coaching & playbooks]
+AB --> DEC4{Quarterly review complete?}
 IRF --> DEC4
-DEC4 -- Gaps --> REMPLAN[Action plan: owners & dates]:::risk --> KPI
-DEC4 -- Yes --> BOARD([Board update & next-quarter plan]):::milestone
+DEC4 -- Gaps --> REMPLAN[Action plan: owners & dates] --> KPI
+DEC4 -- Yes --> BOARD([Board update & next-quarter plan])
 end
 
 JOIN2 --> GL
+
 ````
 
 ### 90-Day Plan (Gantt Calendar)
